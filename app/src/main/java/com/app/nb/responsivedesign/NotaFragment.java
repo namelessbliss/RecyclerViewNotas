@@ -16,11 +16,9 @@ import java.util.List;
 
 public class NotaFragment extends Fragment {
 
-    // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
-    // TODO: Customize parameters
+
     private int mColumnCount = 2;
-    private NotasInteractionListener mListener;
 
     private List<Nota> notaList;
 
@@ -66,7 +64,7 @@ public class NotaFragment extends Fragment {
 
             notaList = getNotas();
 
-            notaAadapter = new MyNotaRecyclerViewAdapter(notaList, mListener);
+            notaAadapter = new MyNotaRecyclerViewAdapter(notaList, getActivity());
 
             recyclerView.setAdapter(notaAadapter);
         }
@@ -81,23 +79,4 @@ public class NotaFragment extends Fragment {
             add(new Nota("Cumpleaño", "No olvidar comprar un regalo para el cumpleaños de la vecina", true, android.R.color.holo_purple));
         }};
     }
-
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof NotasInteractionListener) {
-            mListener = (NotasInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnListFragmentInteractionListener");
-        }
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
-
 }

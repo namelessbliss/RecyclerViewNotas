@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class NotasActivity extends AppCompatActivity implements NotasInteractionListener {
+public class DashboardActivity extends AppCompatActivity{
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -51,24 +51,5 @@ public class NotasActivity extends AppCompatActivity implements NotasInteraction
                 .beginTransaction()
                 .replace(R.id.contenedor, new NotaFragment())
                 .commit();
-    }
-
-
-    @Override
-    public void editNotaClick(Nota nota) {
-
-    }
-
-    @Override
-    public void eliminarNotaClick(Nota nota) {
-
-    }
-
-    @Override
-    public void favoritaNotaClick(Nota nota) {
-        if (!nota.isFavorita())
-            nota.setFavorita(true);
-        else
-            nota.setFavorita(false);
     }
 }

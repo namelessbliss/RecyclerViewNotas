@@ -1,5 +1,6 @@
 package com.app.nb.responsivedesign;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,11 +14,11 @@ import java.util.List;
 public class MyNotaRecyclerViewAdapter extends RecyclerView.Adapter<MyNotaRecyclerViewAdapter.ViewHolder> {
 
     private final List<Nota> mValues;
-    private final NotasInteractionListener mListener;
+    private Context context;
 
-    public MyNotaRecyclerViewAdapter(List<Nota> items, NotasInteractionListener listener) {
+    public MyNotaRecyclerViewAdapter(List<Nota> items, Context context) {
         mValues = items;
-        mListener = listener;
+        this.context = context;
     }
 
     @Override
@@ -41,12 +42,7 @@ public class MyNotaRecyclerViewAdapter extends RecyclerView.Adapter<MyNotaRecycl
         holder.ivFavorito.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (null != mListener) {
-                    // Notify the active callbacks interface (the activity, if the
-                    // fragment is attached to one) that an item has been selected.
-                    mListener.favoritaNotaClick(holder.mItem);
-                    notifyDataSetChanged();
-                }
+
             }
         });
     }
