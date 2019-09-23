@@ -20,7 +20,7 @@ public class NotaFragment extends Fragment {
 
     private int mColumnCount = 2;
 
-    private List<Nota> notaList;
+    private List<NotaEntity> notaList;
 
     private MyNotaRecyclerViewAdapter notaAadapter;
 
@@ -71,12 +71,12 @@ public class NotaFragment extends Fragment {
         return view;
     }
 
-    private List<Nota> getNotas() {
-        return new ArrayList<Nota>() {{
-            add(new Nota("Lista de compras", "Comprar pan y un kilo de huevo", false, android.R.color.holo_blue_light));
-            add(new Nota("Recoger hija de la escuela", "No olvidar ir a recoGer a la niña a la escuela a las de 2 pm ya que mamá no volvera del trabajo hoy", true, android.R.color.holo_red_light));
-            add(new Nota("Recordatorio de deuda", "Pagar para el sabado", false, android.R.color.holo_green_dark));
-            add(new Nota("Cumpleaño", "No olvidar comprar un regalo para el cumpleaños de la vecina", true, android.R.color.holo_purple));
+    private List<NotaEntity> getNotas() {
+        return new ArrayList<NotaEntity>() {{
+            add(new NotaEntity("Lista de compras", "Comprar pan y un kilo de huevo", false, android.R.color.holo_blue_light));
+            add(new NotaEntity("Recoger hija de la escuela", "No olvidar ir a recoGer a la niña a la escuela a las de 2 pm ya que mamá no volvera del trabajo hoy", true, android.R.color.holo_red_light));
+            add(new NotaEntity("Recordatorio de deuda", "Pagar para el sabado", false, android.R.color.holo_green_dark));
+            add(new NotaEntity("Cumpleaño", "No olvidar comprar un regalo para el cumpleaños de la vecina", true, android.R.color.holo_purple));
         }};
     }
 }

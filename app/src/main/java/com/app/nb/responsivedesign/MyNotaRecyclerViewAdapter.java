@@ -13,10 +13,10 @@ import java.util.List;
 
 public class MyNotaRecyclerViewAdapter extends RecyclerView.Adapter<MyNotaRecyclerViewAdapter.ViewHolder> {
 
-    private final List<Nota> mValues;
+    private final List<NotaEntity> mValues;
     private Context context;
 
-    public MyNotaRecyclerViewAdapter(List<Nota> items, Context context) {
+    public MyNotaRecyclerViewAdapter(List<NotaEntity> items, Context context) {
         mValues = items;
         this.context = context;
     }
@@ -57,7 +57,7 @@ public class MyNotaRecyclerViewAdapter extends RecyclerView.Adapter<MyNotaRecycl
         public final TextView tvTitulo;
         public final TextView tvContenido;
         public final ImageView ivFavorito;
-        public Nota mItem;
+        public NotaEntity mItem;
 
         public ViewHolder(View view) {
             super(view);
