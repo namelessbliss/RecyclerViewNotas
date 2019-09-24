@@ -13,7 +13,7 @@ public class NotaEntity {
     private boolean favorita;
     private int color;
 
-    public NotaEntity(String titulo, String contenido, boolean favorita, int color) {
+    public NotaEntity(String titulo, String contenido, boolean favorita, String color) {
         this.titulo = titulo;
         this.contenido = contenido;
         this.favorita = favorita;

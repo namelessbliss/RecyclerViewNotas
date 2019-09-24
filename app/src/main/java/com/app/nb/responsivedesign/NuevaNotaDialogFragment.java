@@ -6,7 +6,6 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.Switch;
@@ -15,6 +14,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 import androidx.lifecycle.ViewModelProviders;
+
+import com.app.nb.responsivedesign.db.entity.NotaEntity;
 
 public class NuevaNotaDialogFragment extends DialogFragment {
 
@@ -58,12 +59,16 @@ public class NuevaNotaDialogFragment extends DialogFragment {
                         }
 
                         boolean isFavorita = swFavorita.isChecked();
+
+                        //Comunica al viewmodel el nuevo dato
+                        mViewModel.insertarNota(new NotaEntity(titulo, contenido, isFavorita, color));
+                        dialogInterface.dismiss(); //cerrar el dialogo
                     }
                 })
                 .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-
+                        dialogInterface.dismiss(); //cerrar el dialogo
                     }
                 });
 

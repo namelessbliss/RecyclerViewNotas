@@ -7,10 +7,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
+import com.app.nb.responsivedesign.NuevaNotaDialogViewModel;
 import com.app.nb.responsivedesign.R;
 import com.app.nb.responsivedesign.db.entity.NotaEntity;
 
@@ -26,6 +29,8 @@ public class NotaFragment extends Fragment {
     private List<NotaEntity> notaList;
 
     private MyNotaRecyclerViewAdapter notaAadapter;
+
+    private NuevaNotaDialogViewModel notaViewModel
 
     public NotaFragment() {
     }
@@ -70,16 +75,24 @@ public class NotaFragment extends Fragment {
             notaAadapter = new MyNotaRecyclerViewAdapter(notaList, getActivity());
 
             recyclerView.setAdapter(notaAadapter);
+
+            lanzarViewModel();
         }
         return view;
     }
 
+    private void lanzarViewModel() {
+        notaViewModel = ViewModelProviders.of(getActivity()).get(NuevaNotaDialogViewModel.class);
+        notaViewModel.getNotas().observe(getActivity(), new Observer<List<NotaEntity>>() {
+            @Override
+            public void onChanged(List<NotaEntity> notaEntities) {
+                notaAadapter.setNuevasNotas(notaEntities);
+            }
+        });
+    }
+
     private List<NotaEntity> getNotas() {
         return new ArrayList<NotaEntity>() {{
-            add(new NotaEntity("Lista de compras", "Comprar pan y un kilo de huevo", false, android.R.color.holo_blue_light));
-            add(new NotaEntity("Recoger hija de la escuela", "No olvidar ir a recoGer a la niña a la escuela a las de 2 pm ya que mamá no volvera del trabajo hoy", true, android.R.color.holo_red_light));
-            add(new NotaEntity("Recordatorio de deuda", "Pagar para el sabado", false, android.R.color.holo_green_dark));
-            add(new NotaEntity("Cumpleaño", "No olvidar comprar un regalo para el cumpleaños de la vecina", true, android.R.color.holo_purple));
         }};
     }
 }
