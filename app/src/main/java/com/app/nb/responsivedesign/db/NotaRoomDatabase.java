@@ -1,10 +1,13 @@
-package com.app.nb.responsivedesign;
+package com.app.nb.responsivedesign.db;
 
 import android.content.Context;
 
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+
+import com.app.nb.responsivedesign.db.dao.NotaDAO;
+import com.app.nb.responsivedesign.db.entity.NotaEntity;
 
 @Database(entities = {NotaEntity.class}, version = 1)
 public abstract class NotaRoomDatabase extends RoomDatabase {

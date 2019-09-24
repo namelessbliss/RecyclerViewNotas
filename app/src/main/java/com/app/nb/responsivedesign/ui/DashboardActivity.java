@@ -1,4 +1,4 @@
-package com.app.nb.responsivedesign;
+package com.app.nb.responsivedesign.ui;
 
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import com.app.nb.responsivedesign.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class DashboardActivity extends AppCompatActivity{

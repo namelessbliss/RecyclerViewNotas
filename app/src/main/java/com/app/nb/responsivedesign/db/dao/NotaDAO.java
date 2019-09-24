@@ -1,10 +1,12 @@
-package com.app.nb.responsivedesign;
+package com.app.nb.responsivedesign.db.dao;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
+
+import com.app.nb.responsivedesign.db.entity.NotaEntity;
 
 import java.util.List;
 

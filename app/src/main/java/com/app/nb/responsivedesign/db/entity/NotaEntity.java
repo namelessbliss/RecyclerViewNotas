@@ -1,4 +1,4 @@
-package com.app.nb.responsivedesign;
+package com.app.nb.responsivedesign.db.entity;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;

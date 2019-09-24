@@ -1,4 +1,4 @@
-package com.app.nb.responsivedesign;
+package com.app.nb.responsivedesign.ui;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -10,6 +10,9 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
+
+import com.app.nb.responsivedesign.R;
+import com.app.nb.responsivedesign.db.entity.NotaEntity;
 
 import java.util.ArrayList;
 import java.util.List;

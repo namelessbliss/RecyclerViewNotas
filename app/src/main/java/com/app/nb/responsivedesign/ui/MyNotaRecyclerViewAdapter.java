@@ -1,4 +1,4 @@
-package com.app.nb.responsivedesign;
+package com.app.nb.responsivedesign.ui;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,6 +8,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.app.nb.responsivedesign.R;
+import com.app.nb.responsivedesign.db.entity.NotaEntity;
 
 import java.util.List;
 
