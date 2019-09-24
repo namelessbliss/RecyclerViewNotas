@@ -3,16 +3,22 @@ package com.app.nb.responsivedesign.ui;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
+import com.app.nb.responsivedesign.NuevaNotaDialogFragment;
 import com.app.nb.responsivedesign.NuevaNotaDialogViewModel;
 import com.app.nb.responsivedesign.R;
 import com.app.nb.responsivedesign.db.entity.NotaEntity;
@@ -30,7 +36,7 @@ public class NotaFragment extends Fragment {
 
     private MyNotaRecyclerViewAdapter notaAadapter;
 
-    private NuevaNotaDialogViewModel notaViewModel
+    private NuevaNotaDialogViewModel notaViewModel;
 
     public NotaFragment() {
     }
@@ -43,6 +49,7 @@ public class NotaFragment extends Fragment {
         args.putInt(ARG_COLUMN_COUNT, columnCount);
         fragment.setArguments(args);
         return fragment;
+
     }
 
     @Override
@@ -52,6 +59,9 @@ public class NotaFragment extends Fragment {
         if (getArguments() != null) {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
         }
+
+        //Indica que el fragment tiene un menu option propio
+        setHasOptionsMenu(true);
     }
 
     @Override
@@ -94,5 +104,27 @@ public class NotaFragment extends Fragment {
     private List<NotaEntity> getNotas() {
         return new ArrayList<NotaEntity>() {{
         }};
+    }
+
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        inflater.inflate(R.menu.option_menu_nota_fragment, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_add_nota:
+                mostrarDialogNuevaNota();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void mostrarDialogNuevaNota() {
+        FragmentManager manager = getActivity().getSupportFragmentManager();
+        NuevaNotaDialogFragment dialogFragment = new NuevaNotaDialogFragment();
+        dialogFragment.show(manager, "NuevaNotaDialogFragment");
     }
 }

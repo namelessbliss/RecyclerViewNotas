@@ -11,7 +11,7 @@ public class NotaEntity {
     private String titulo;
     private String contenido;
     private boolean favorita;
-    private int color;
+    private String color;
 
     public NotaEntity(String titulo, String contenido, boolean favorita, String color) {
         this.titulo = titulo;
@@ -52,11 +52,11 @@ public class NotaEntity {
         this.favorita = favorita;
     }
 
-    public int getColor() {
+    public String getColor() {
         return color;
     }
 
-    public void setColor(int color) {
+    public void setColor(String color) {
         this.color = color;
     }
 }

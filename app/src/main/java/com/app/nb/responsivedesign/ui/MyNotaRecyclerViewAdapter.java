@@ -32,7 +32,7 @@ public class MyNotaRecyclerViewAdapter extends RecyclerView.Adapter<MyNotaRecycl
     }
 
     @Override
-    public void onBindViewHolder(final ViewHolder holder, int position) {
+    public void onBindViewHolder(final ViewHolder holder, final int position) {
         holder.mItem = mValues.get(position);
         holder.tvTitulo.setText(mValues.get(position).getTitulo());
         holder.tvContenido.setText(mValues.get(position).getContenido());
@@ -45,7 +45,11 @@ public class MyNotaRecyclerViewAdapter extends RecyclerView.Adapter<MyNotaRecycl
         holder.ivFavorito.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                if (mValues.get(position).isFavorita())
+                    mValues.get(position).setFavorita(false);
+                else
+                    mValues.get(position).setFavorita(true);
+                notifyDataSetChanged();
             }
         });
     }
