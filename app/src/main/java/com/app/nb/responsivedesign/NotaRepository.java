@@ -49,6 +49,7 @@ public class NotaRepository {
 
         /**
          * Obtiene el dao como paametro e igual al dao del contexto actual
+         *
          * @param dao
          */
         InsertAsyncTask(NotaDAO dao) {
@@ -59,6 +60,31 @@ public class NotaRepository {
         protected Void doInBackground(NotaEntity... notaEntities) {
             //obtiene el primer elemento Nota de la lista para insertarlo
             notaDAOAsyncTask.insertarNota(notaEntities[0]);
+            return null;
+        }
+    }
+
+    public void actualizarNota(NotaEntity nota) {
+        new UpdateAsyncTask(notaDAO).execute(nota);
+    }
+
+    private class UpdateAsyncTask extends AsyncTask<NotaEntity, Void, Void> {
+
+        private NotaDAO notaDAOAsyncTask;
+
+        /**
+         * Obtiene el dao como paametro e igual al dao del contexto actual
+         *
+         * @param dao
+         */
+        UpdateAsyncTask(NotaDAO dao) {
+            notaDAOAsyncTask = dao;
+        }
+
+        @Override
+        protected Void doInBackground(NotaEntity... notaEntities) {
+            //obtiene el primer elemento Nota de la lista para insertarlo
+            notaDAOAsyncTask.actualizarNota(notaEntities[0]);
             return null;
         }
     }

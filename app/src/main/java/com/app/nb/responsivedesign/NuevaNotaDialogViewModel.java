@@ -31,4 +31,8 @@ public class NuevaNotaDialogViewModel extends AndroidViewModel {
         notaRepository.insertarNota(notaEntity);
     }
 
+    public void actualizarNota(NotaEntity notaEntity) {
+        notaRepository.actualizarNota(notaEntity);
+    }
+
 }
